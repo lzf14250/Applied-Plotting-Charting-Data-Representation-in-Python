@@ -21,6 +21,9 @@ class draggable_lines:
         self.sid = self.c.mpl_connect('pick_event', self.clickonline)
 
     def clickonline(self, event):
+        ''' 
+        check if the line clicked is actually the line to be moved inside the 'pick_event' callback
+        '''
         if event.artist == self.line:
             print("line selected ", event.artist)
             self.follower = self.c.mpl_connect("motion_notify_event", self.followmouse)
